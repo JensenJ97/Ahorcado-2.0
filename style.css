@@ -1,0 +1,71 @@
+header {
+    
+  padding: 3rem;
+  size-adjust: 15%;
+  background: #007bff
+}
+
+
+
+.encabezado{
+  width: 100%;
+  margin: 0 auto;
+  text-align: left; 
+}
+
+
+
+.titulo{
+  margin-left: 5%;
+  font-size: 38px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(241, 240, 250);
+}
+.logo{
+  float: left;
+}
+
+.sub-titulo {
+  text-align: right;
+  margin-right: 5%;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif; 
+  color: rgb(241, 240, 250);
+}
+
+footer{
+  width: 100%;
+  margin-top: 2rem;
+  position: relative;
+  text-align: center;
+  padding:5px;
+}
+
+.copyright{
+  color:rgb(132, 132, 132);
+  font-size: 13px;
+  margin:20px;
+}
+
+#empezar, #reiniciar, #agregar, #ver{
+  color:rgb(241, 240, 250);
+  background: #007bff
+
+}
+
+#reiniciar {
+  margin: 2rem;
+}
+
+#agregar {
+  margin: 1rem;
+}
+
+.listaPalabras{
+  margin-top: 2rem;
+}
+
+
+#ver {
+  display: block;
+}
