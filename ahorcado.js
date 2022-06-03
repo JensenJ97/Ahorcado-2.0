@@ -16,7 +16,7 @@ contadorErrores.classList.add('d-none')
 
 let imagenInicio = document.querySelector("#fotoInicio")
 let inputNuevaPalabra = document.getElementById('inputAgregar')
-
+let inputPalabraEliminada = document.getElementById('inputEliminar')
 let listaPalabras = document.getElementById('pistas')
 listaPalabras.classList.add('d-none')
 
@@ -27,7 +27,6 @@ function empezar(){
   imagenInicio.classList.add('d-none')
   if(errores < 1){
   btnEmpezar.classList.add('d-none')
-  generarBotones()
   elegirPalabra();
   generarBotones();
   mostrarAdivinadas();
@@ -38,18 +37,24 @@ function empezar(){
 }
 
 
-function capturarTexto(){
-    let nuevaPalabra = document.querySelector("input").value
+function capturarPalabraAgregar(){
+    let nuevaPalabra = document.getElementById("inputAgregar").value
     return nuevaPalabra.toLowerCase()
 
     
+}
+function capturarPalabraEliminar(){
+  let nuevaPalabra = document.getElementById("inputEliminar").value
+  return nuevaPalabra.toLowerCase()
+
+  
 }
 
 
 let btnAgregar = document.getElementById('input')
 
 function agregarPalabra(){
-  nuevaPalabra = capturarTexto();
+  nuevaPalabra = capturarPalabraAgregar();
   let criterio = /^[a-zA-Z]+$/ //solo se aceptan letras 
   if(palabras.indexOf(nuevaPalabra) < 0 && criterio.test(nuevaPalabra)){
   palabras.push(nuevaPalabra);
@@ -65,6 +70,27 @@ function agregarPalabra(){
     alert('No ingreso ninguna palabra.')
     return
   } if (!criterio.test(nuevaPalabra)){
+    alert('Solo se admiten letras (sin espacios, numeros o caracteres especiales).')
+  } 
+};
+
+function eliminarPalabra(){
+  palabraEliminada = capturarPalabraEliminar();
+  let criterio = /^[a-zA-Z]+$/ //solo se aceptan letras 
+  if(palabras.indexOf(palabraEliminada) >= 0 && criterio.test(palabraEliminada)){
+    palabras.splice(palabras.indexOf(palabraEliminada),1);
+  alert ('Se eliminó "'+ palabraEliminada +'" de la lista.')
+  actualizarLista()
+  inputPalabraEliminada.value = ""
+  return
+
+  } if (palabras.indexOf(palabraEliminada) < 0){
+    alert('La palabra "' + palabraEliminada + '" no se encuentra en la lista.')
+    inputNuevaPalabra.value = ""
+  } if (palabraEliminada.length == 0) {
+    alert('No ingreso ninguna palabra para eliminar.')
+    return
+  } if (!criterio.test(palabraEliminada)){
     alert('Solo se admiten letras (sin espacios, numeros o caracteres especiales).')
   } 
 };
