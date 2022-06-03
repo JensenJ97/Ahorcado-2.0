@@ -53,18 +53,19 @@ function agregarPalabra(){
   let criterio = /^[a-zA-Z]+$/ //solo se aceptan letras 
   if(palabras.indexOf(nuevaPalabra) < 0 && criterio.test(nuevaPalabra)){
   palabras.push(nuevaPalabra);
-  alert ('se agrego "'+ nuevaPalabra +'" a la lista')
+  alert ('Se agregó "'+ nuevaPalabra +'" a la lista.')
+  actualizarLista()
   inputNuevaPalabra.value = ""
   return
 
   } if (palabras.indexOf(nuevaPalabra) > 0){
-    alert('la palabra "' + nuevaPalabra + '" ya se encuentra en la lista')
+    alert('La palabra "' + nuevaPalabra + '" ya se encuentra en la lista.')
     inputNuevaPalabra.value = ""
   } if (nuevaPalabra.length == 0) {
-    alert('no ingreso ninguna palabra')
+    alert('No ingreso ninguna palabra.')
     return
   } if (!criterio.test(nuevaPalabra)){
-    alert('solo se admiten letras (sin espacios ni numeros)')
+    alert('Solo se admiten letras (sin espacios, numeros o caracteres especiales).')
   } 
 };
 
@@ -153,10 +154,14 @@ function reset() {
 function verLista(){
   if (listaPalabras.classList.contains('d-none')){
     listaPalabras.classList.remove('d-none')
-    listaPalabras.innerHTML = palabras.join(" , ")
+    actualizarLista()
   } else {
     listaPalabras.classList.add('d-none')
   }
+}
+
+function actualizarLista(){
+  listaPalabras.innerHTML = palabras.join(" , ")
 }
 
 
