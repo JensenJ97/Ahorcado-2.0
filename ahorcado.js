@@ -1,4 +1,24 @@
-var palabras = ["alura","javascript","html","css","oracle"]
+let palabras = [["alura","javascript","html","css","oracle"],["argentina","brasil","uruguay","colombia","venezuela"]]
+let categoria = -1
+
+
+function elegirCategoriaProgramacion(){
+  categoria = 0
+  reset()
+  actualizarLista()
+  return categoria
+
+}
+
+function elegirCategoriaPaises(){
+  categoria = 1
+  reset()
+  actualizarLista()
+  return categoria
+}
+
+
+
 
 let palabraAdivinar = '';
 let maximoErrores = 6;
@@ -56,14 +76,14 @@ let btnAgregar = document.getElementById('input')
 function agregarPalabra(){
   nuevaPalabra = capturarPalabraAgregar();
   let criterio = /^[a-zA-Z]+$/ //solo se aceptan letras 
-  if(palabras.indexOf(nuevaPalabra) < 0 && criterio.test(nuevaPalabra)){
-  palabras.push(nuevaPalabra);
+  if(palabras[categoria].indexOf(nuevaPalabra) < 0 && criterio.test(nuevaPalabra)){
+  palabras[categoria].push(nuevaPalabra);
   alert ('Se agregó "'+ nuevaPalabra +'" a la lista.')
   actualizarLista()
   inputNuevaPalabra.value = ""
   return
 
-  } if (palabras.indexOf(nuevaPalabra) > 0){
+  } if (palabras[categoria].indexOf(nuevaPalabra) > 0){
     alert('La palabra "' + nuevaPalabra + '" ya se encuentra en la lista.')
     inputNuevaPalabra.value = ""
   } if (nuevaPalabra.length == 0) {
@@ -77,14 +97,14 @@ function agregarPalabra(){
 function eliminarPalabra(){
   palabraEliminada = capturarPalabraEliminar();
   let criterio = /^[a-zA-Z]+$/ //solo se aceptan letras 
-  if(palabras.indexOf(palabraEliminada) >= 0 && criterio.test(palabraEliminada)){
-    palabras.splice(palabras.indexOf(palabraEliminada),1);
+  if(palabras[categoria].indexOf(palabraEliminada) >= 0 && criterio.test(palabraEliminada)){
+    palabras[categoria].splice(palabras[categoria].indexOf(palabraEliminada),1);
   alert ('Se eliminó "'+ palabraEliminada +'" de la lista.')
   actualizarLista()
   inputPalabraEliminada.value = ""
   return
 
-  } if (palabras.indexOf(palabraEliminada) < 0){
+  } if (palabras[categoria].indexOf(palabraEliminada) < 0){
     alert('La palabra "' + palabraEliminada + '" no se encuentra en la lista.')
     inputNuevaPalabra.value = ""
   } if (palabraEliminada.length == 0) {
@@ -99,7 +119,7 @@ function eliminarPalabra(){
 
 
 function elegirPalabra() {
-  palabraAdivinar = palabras[Math.floor(Math.random() * palabras.length)];
+  palabraAdivinar = palabras[categoria][Math.floor(Math.random() * palabras[categoria].length)];
 }
 
 function generarBotones() {
@@ -187,9 +207,10 @@ function verLista(){
 }
 
 function actualizarLista(){
-  listaPalabras.innerHTML = palabras.join(" , ")
+if (categoria < 0) {
+  listaPalabras.innerHTML = "seleccione una categoria"
+} else {
+  listaPalabras.innerHTML = palabras[categoria]
 }
-
-
-
+}
 
