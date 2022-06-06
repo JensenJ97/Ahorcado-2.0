@@ -39,6 +39,7 @@ footer{
   position: relative;
   text-align: center;
   padding:5px;
+  
 }
 
 .copyright{
@@ -69,3 +70,38 @@ footer{
 #ver {
   display: block;
 }
+
+.categorias {
+  margin-top: 2rem;
+  font-family: 'Montserrat', sans-serif; 
+}
+
+
+#paises, #programacion {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#reiniciar{
+  transition: 0.3s;
+  opacity: 0.6;
+}
+
+#paises:hover, #programacion:hover, #reiniciar:hover {
+  opacity: 1
+}
+
+button{
+  font-family: 'Montserrat', sans-serif; 
+}
+

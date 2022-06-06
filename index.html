@@ -43,8 +43,13 @@
       </div>
       <button id ="empezar" class="btn btn-primary btn-lg btn-block" onClick="empezar()">Empezar a jugar</button>
       <button id ="reiniciar" class="btn btn-secondary btn-lg btn-block" onClick="reset()">Reinicar juego</button>
-      <button id ="programacion" class="btn btn-outline-info" onClick="elegirCategoriaProgramacion()">Categoria Programacion</button>
-      <button id ="paises" class="btn btn-outline-info" onClick="elegirCategoriaPaises()">Categoria paises</button>   
+      
+    </div>
+
+    <div class="categorias">
+      <h4>Categorias</h4>
+      <button id ="programacion" class="btn btn-outline-info" onClick="elegirCategoriaProgramacion()">Programacion</button>
+      <button id ="paises" class="btn btn-outline-info" onClick="elegirCategoriaPaises()">Paises</button>   
     </div>
     
     <div class="listaPalabras">
@@ -52,12 +57,14 @@
       <textarea id="pistas" class="form-control" rows="1" style="resize: none" readonly></textarea>
     </div>
     
-    <footer>
+    <footer class="text-center">
       <img src="img/aluralatam.JPG">
-      <p class="copyright">&copy Julian Jensen - 2022</p>
+      
+      <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="julian-jensen" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ar.linkedin.com/in/julian-jensen?trk=profile-badge">Julian Jensen</a></div>
     </footer>
 
     <script src='./ahorcado.js'></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
   </body>
 

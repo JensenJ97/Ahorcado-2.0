@@ -41,19 +41,22 @@ let listaPalabras = document.getElementById('pistas')
 listaPalabras.classList.add('d-none')
 
 function empezar(){
-  statusJuego = true
-  btnReinicar.classList.remove('d-none')
-  contadorErrores.classList.remove('d-none')
-  imagenInicio.classList.add('d-none')
-  if(errores < 1){
-  btnEmpezar.classList.add('d-none')
-  elegirPalabra();
-  generarBotones();
-  mostrarAdivinadas();
-  dibujarAhorcado(errores);
-  } else (
-    reset()
-  )
+  if(categoria !== -1){
+    btnEmpezar.innerHTML = "Empezar a Jugar"
+    statusJuego = true
+    btnReinicar.classList.remove('d-none')
+    contadorErrores.classList.remove('d-none')
+    imagenInicio.classList.add('d-none')
+    if(errores < 1){
+    btnEmpezar.classList.add('d-none')
+    elegirPalabra();
+    generarBotones();
+    mostrarAdivinadas();
+    dibujarAhorcado(errores);
+  }
+  } else {
+    alert ("Debe seleccionar una categoria primero.")
+  }
 }
 
 
